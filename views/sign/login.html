@@ -1,0 +1,46 @@
+<div id="header-banner">
+  <div class="header-banner-box">
+      <p class="banner-title">登录</p>
+    </div>
+</div>
+<div id="body">
+  <div class="page-title-sub"></div>
+    <form action="/sign/login.do" method="post">
+      <div id="form-submit">
+          <div style="float:left;width:700px;">
+              <fieldset>
+                <legend style="color:#555;">填写登录信息</legend>
+                <input type="hidden" name="redirectUrl" id="redirectUrl" value="<%=redirectUrl%>">
+                    <input type="hidden" name="_csrf" id="_csrf" value="<%=request.session._csrf%>">
+                    <div class="field-group">
+                        <label class="required title" for="email">帐号:</label>
+                        <input type="text" name="name" id="name" tabindex="1" class="input1"  style="width:250px">
+                        <span class="error" id="loginWarn"><%= warn %></span> 
+                        <br />
+                    </div>
+                    <div class="field-group">
+                        <label class="required title" for="pwd">密码:</label>
+                        <input type="password" name="pwd" id="pwd" tabindex="1" class="input1" value="" style="width:250px"><br />
+                        <span class="error" id="__err_pwd"></span>
+                    </div>
+                    <div class="field-group">
+                        <div style="margin:0px 0 0 140px;line-height:20px;color:#666;">
+                          <input type="checkbox" id="remeber_me" name="remeber_me" value="1" checked="checked">
+                            <label for="remeber_me">
+                                在这个浏览器上记住我 
+                            </label>
+                            <br />
+                        </div>
+                    </div>
+                </fieldset>
+                <div style="text-align:right;">
+                    <input type="submit" id="login" class="btn1" value="登录">
+                </div>
+            </div>
+            <div class="clr"></div>
+        </div>
+    </form>
+    <div style="margin:30px;height:20px;"></div>
+    <div class="clr"></div>
+</div>
+<script src="/scripts/login.js?v=<%= config.staticVersion %>" type="text/javascript"></script>

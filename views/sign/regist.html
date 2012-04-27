@@ -1,0 +1,45 @@
+<div id="header-banner">
+	<div class="header-banner-box">
+    	<p class="banner-title">免费注册</p>
+    </div>
+</div>
+<div id="body">
+	<div class="page-title-sub"></div>
+    <form action="/sign/regist.do" method="post">
+    	<div id="form-submit">
+        	<div style="float:left;width:700px;">
+            	<fieldset>
+	            	<legend style="color:#555;">填写注册信息</legend>
+	            	    <input type="hidden" name="_csrf" value="<%=request.session._csrf%>" id="_csrf">
+                    <div class="field-group">
+                        <label class="required title" for="newUserName"><span style="color:red;">*</span> 帐号:</label>
+                        <input type="text" name="newUserName" id="newUserName" tabindex="1" class="input1"  style="width:250px">
+                        <span id="nameWarn" class="error"></span>
+                        <br />
+                    </div>
+                    <div class="field-group">
+                        <label class="required title" for="newPassword"><span style="color:red;">*</span> 密码:</label>
+                        <input type="password" name="newPassword" id="newPassword" tabindex="1" class="input1" value="" style="width:250px">
+                        <span id="passwordWarn" class="error"></span>
+                        <br />
+                    </div>
+                    <div class="field-group">
+                        <label class="required title" for="passwordCon"><span style="color:red;">*</span> 重复密码:</label>
+                        <input type="password" name="passwordCon" id="passwordCon" tabindex="1" class="input1" value="" style="width:250px">
+                        <span id="conWarn" class="error"></span>
+                        <br />
+                    </div>
+                    <div class="spacer"></div>
+                </fieldset>
+                <div style="text-align:right;" id="div-submit">
+                    <span id="btn-submit"><input type="submit" class="btn1" id="submit" value="注册"></span>
+                    <span id="loading-submit"><img src="/images/ajax_loader.gif"></span>
+                </div>
+            </div>
+            <div class="clr"></div>
+        </div>
+    </form>
+    <div id="succ-tips" class="succ-tips" style="margin-left:5px;display:none;"></div>
+    <div style="margin:30px;height:20px;"></div>
+    <div class="clr"></div>
+</div>

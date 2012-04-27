@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8" />
+    <title><%= config.site_name %></title>
+    <link href="/css/reset.css?v=<%= config.staticVersion %>" rel="stylesheet" type="text/css" />
+    <link href="/css/global.css?v=<%= config.staticVersion %>" rel="stylesheet" type="text/css" />
+    <style>
+    body{ background: #FAFBFC; }
+    </style>
+    </head>
+
+    <body>
+    <div id="header-frame">
+        <div class="header-body">
+            <h3 class="logo"><%= config.site_name %></h3>
+            <div class="main-nav">
+            </div>
+            <div class="account">
+                <span><a href="regist">免费注册</a></span>
+                <span><a href="login">登录</a></span>
+            </div>
+        </div>
+    </div>
+      <%- body %>
+    <div id="footer-frame">
+    	<div class="footer-body">
+        	<div class="footer-copyright">
+            	<div class="left">&copy; 2011</div>
+                <div class="spacer"></div>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

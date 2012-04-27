@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Mail</title>
+<link href="/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="/css/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<div id="header">
+    	<div id="logo"><h1><img src="image/logo.png" alt="邮件管理系统" title="邮件管理系统" /></h1></div>
+        <div id="tips">
+        	<div class="accout">
+            	<span class="useralias">rock</span>
+                <span class="useraddr">&lt;<%= request.session.user %>&gt;</span>
+            </div>
+            <div class="nav">
+            	<a href="#">邮箱首页</a> | <a href="#">设置</a> | <a href="/sign/logout">退出</a>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+    	<div id="sidebar">
+            <div id="navtop">
+            	<div id="navbar">
+                    <ul>
+                        <li><a class="composebtn" href="#" target="main-frame">写信</a></li>
+                        <li><a class="checkbtn" href="#" target="main-frame">收信</a></li>
+                        <li><a class="addrbtn" href="#" target="main-frame">联系人</a></li>
+                    </ul>
+                </div>
+			</div>
+            <div id="navmid">
+            	<div id="folder">
+                	<ul>
+                    	<li><a href="#" class="select">收件箱</a></li>
+                        <li><a href="#">星标邮件</a></li>
+                        <li><a href="#">草稿箱</a></li>
+                        <li><a href="#">已发送</a></li>
+                        <li><a href="#" class="active">已删除(14)</a></li>
+                        <li><a href="#" class="active">垃圾箱123)</a></li>
+                        <li><a href="#">邮件归档</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="content">
+			<iframe src="list" name="main-frame" id="main-frame" frameborder="no" scrolling="auto"></iframe>
+        </div>
+    </div>
+</body>
+<script src="/js/jquery-1.7.1.min.js"></script>
+<script src="/js/main.js"></script>
+</html>

@@ -1,0 +1,131 @@
+/*!
+ * Connect - Redis
+ * Copyright(c) 2010 TJ Holowaychuk <tj@vision-media.ca>
+ * MIT Licensed
+ */
+
+/**
+ * Module dependencies.
+ */
+
+var redis = require('mredis');
+
+/**
+ * One day in seconds.
+ */
+
+var oneDay = 86400;
+
+/**
+ * Return the `RedisStore` extending `connect`'s session Store.
+ *
+ * @param {object} connect
+ * @return {Function}
+ * @api public
+ */
+
+module.exports = function(connect){
+
+  /**
+   * Connect's Store.
+   */
+
+  var Store = connect.session.Store;
+
+  /**
+   * Initialize RedisStore with the given `options`.
+   *
+   * @param {Object} options
+   * @api public
+   */
+
+  function RedisStore(options) {
+    options = options || {};
+    Store.call(this, options);
+    this.prefix = null == options.prefix
+      ? 'sess:'
+      : options.prefix;
+    //this.client = options.client || new redis.createClient(options.port || options.socket, options.host, options);
+    this.client = options.client || new redis.createClient(options);
+    if (options.pass) {
+      this.client.auth(options.pass, function(err){
+        if (err) throw err;
+      });    
+    }
+
+    if (options.db) {
+      var self = this;
+      self.client.select(options.db);
+      self.client.on("connect", function(client) {
+        client.send_anyways = true;
+        client.select(options.db);
+        client.send_anyways = false;
+      });
+    }
+  };
+
+  /**
+   * Inherit from `Store`.
+   */
+
+  RedisStore.prototype.__proto__ = Store.prototype;
+
+  /**
+   * Attempt to fetch session by the given `sid`.
+   *
+   * @param {String} sid
+   * @param {Function} fn
+   * @api public
+   */
+
+  RedisStore.prototype.get = function(sid, fn){
+    sid = this.prefix + sid;
+    this.client.get(sid, function(err, data){
+      if (!data) return fn();
+      try {
+        var dataJson = JSON.parse(data.toString());
+      } catch (err) {
+        return fn(err);
+      }
+      fn(null, dataJson); 
+    });
+  };
+  /**
+   * Commit the given `sess` object associated with the given `sid`.
+   *
+   * @param {String} sid
+   * @param {Session} sess
+   * @param {Function} fn
+   * @api public
+   */
+
+  RedisStore.prototype.set = function(sid, sess, fn){
+    sid = this.prefix + sid;
+    try {
+      var maxAge = sess.cookie.maxAge
+        , ttl = 'number' == typeof maxAge
+          ? maxAge / 1000 | 0
+          : oneDay
+        , sess = JSON.stringify(sess);
+      }catch(err){
+        return fn&&fn(err);
+      }
+    this.client.setex(sid, ttl, sess, function(){
+      fn && fn.apply(this, arguments);
+    });
+  };
+
+  /**
+   * Destroy the session associated with the given `sid`.
+   *
+   * @param {String} sid
+   * @api public
+   */
+
+  RedisStore.prototype.destroy = function(sid, fn){
+    sid = this.prefix + sid;
+    this.client.del(sid, fn);
+  };
+
+  return RedisStore;
+};

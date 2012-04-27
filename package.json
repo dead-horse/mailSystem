@@ -1,0 +1,36 @@
+{
+	"name" : "mail system",
+	"main" : "./server.js",
+	"version" : "0.0.1",
+	"description" : "",
+	"scripts" : 
+	{
+		"test" : "make tes"
+	},
+	"keywords" : 
+	[
+		"mail"
+	],
+	"license" : "MIT",
+	"engine" : 
+	{
+		"node" : " >= 0.6"
+	},
+	"dependencies":{
+		"ejs": ">=0.6.1",
+		"eventproxy": ">=0.0.4",
+		"mongoskin":">=0.2.3",
+        "connect-mredis" : ">=1.0.6"
+	},
+	"devDependencies" : {
+		"should" : ">=0.4.2",
+		"mocha" : ">=0.8.1"
+	},
+	"bundleDependencies" :[
+		"connect",
+		"connect-redis",
+		"nodemailer",
+		"mongoskin",
+		"http_patch"
+	]
+}

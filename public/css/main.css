@@ -1,0 +1,298 @@
+@charset "utf-8";
+
+body {
+	margin: 0 auto;
+	padding: 0;
+	font-size: 12px;
+	line-height: 1.6;
+	font-family: Verdana;
+	background-color: #fff;
+	color: #000;
+}
+a {
+	color: #082A4E;
+	text-decoration: none;
+}
+a:hover {
+	color: #082A4E;
+	text-decoration: underline;
+}
+a.green:link {
+	color: #919D18;
+	text-decoration: none;
+}
+img {
+	border: none;
+}
+input, textarea, a {
+	outline: none;
+}
+.btn, button {
+	padding: 2px 3px;
+	font-size: 12x;
+}
+.wd1 {
+	width: 50px;
+	margin: 1px 1px 0 0;
+}
+.wd2 {
+	width: 64px;
+	margin: 1px 1px 0 0;
+}
+.wd3 {
+	width: 82px;
+	margin: 1px 1px 0 0;
+}
+.wd4 {
+	width: 100px;
+	margin: 1px 1px 0 0;
+}
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+.clearfix {
+	display: inline-block;
+}
+.spacer, .spacer10 {
+	clear: both;
+	height: 10px;
+	font-size: 1px;
+	line-height: 1px;
+}
+.clr {
+	clear: both;
+}
+#header {
+	position: relative;
+	height: 66px;
+	background: url(../image/top_bg.gif) #31363c;
+	color: #C7CCD1;
+	overflow: hidden;
+}
+#header a {
+	color: #C7CCD1;
+	text-decoration: none;
+}
+#header a:hover {
+	color: #C7CCD1;
+	text-decoration: underline;
+}
+#logo {
+	float: left;
+	margin-left: 12px;
+	cursor: pointer;
+}
+#tips {
+	float: left;
+	margin-left: 12px;
+	margin-top: 12px;
+}
+#tips .useralias {
+	font-weight: bold;
+}
+#sidebar {
+	position: absolute;
+	top: 66px;
+	left: 0;
+	bottom: 0;
+	width: 187px;
+	background: #DFE1E3;
+	border-right: 1px solid #BCC2C7;
+}
+#sidebar #navtop {
+	height: 99px;
+	width: auto;
+	padding-top: 4px;
+	border-bottom: 1px solid #C7CCD1;
+}
+#sidebar #navbar ul li {
+	margin-top: 6px;
+	word-break: keep-all;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+#sidebar #navbar ul li a.composebtn {
+	background: url(../image/nav-icon1.gif) 20px 3px no-repeat;
+}
+#sidebar #navbar ul li a.checkbtn {
+	background: url(../image/nav-icon1.gif) 20px -29px no-repeat;
+}
+#sidebar #navbar ul li a.addrbtn {
+	background: url(../image/nav-icon1.gif) 20px -59px no-repeat;
+}
+#sidebar #navbar ul li a {
+	display: block;
+	height: 24px;
+	line-height: 24px;
+	font-size: 14px;
+	font-weight: bold;
+	padding-left: 53px;
+}
+#sidebar #navbar ul li a:hover {
+	background-color: #C9CED3;
+	text-decoration: none;
+}
+#sidebar #folder ul li {
+	word-break: keep-all;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+#sidebar #folder ul li a {
+	display: block;
+	height: 24px;
+	line-height: 24px;
+	padding-left: 20px;
+}
+#sidebar #folder ul li a:hover {
+	background-color: #C9CED3;
+	text-decoration: none;
+}
+#sidebar #folder ul li a.select {
+	background: url(../image/select1.gif) #8695a7;
+	color: #fff;
+}
+#sidebar #folder ul li a.active {
+	font-weight: bold;
+}
+#sidebar #navmid {
+	overflow: hidden;
+	border-top: 1px solid #fff;
+}
+#sidebar #navmid #folder {
+	height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+#content {
+	position: absolute;
+	left: 192px;
+	top: 69px;
+	bottom: 0;
+	right: 0;
+	overflow: hidden;
+}
+#main-frame {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
+/*in frame*/
+.tbody {
+	padding: 2px 7px 6px 4px;
+	min-width: 700px;
+}
+#page-title {
+	margin: 4px 0 5px 8px;
+}
+#page-title .title {
+	font-size: 14px;
+	font-weight: bold;
+}
+.toolbar {
+	border-bottom: 1px solid #A0A0A0;
+	background: url(../image/toolbar_bg.gif) #b6b7b8 repeat-x;
+	padding: 6px 7px 4px;
+	height: 26px;
+	line-height: 26px;
+	white-space: nowrap;
+}
+.toolbar .btn {
+	float: left;
+	margin: 1px 1px 0 0;
+}
+.toolbar .left {
+	float: left;
+}
+.toolbar .mid {
+	float: left;
+}
+.toolbar .right {
+	float: right;
+}
+.toolbar .selectwrap {
+	width: 30px;
+}
+/*Mail List*/
+#maillist {
+	width: 100%;
+	font-size: 14px;
+}
+#maillist tr {
+	color: #222;
+	cursor: pointer;
+	border-bottom: 1px #E5E5E5 solid;
+}
+#maillist tr:hover {
+	background-color: #F3F3F3;
+}
+#maillist tr.selected {
+	background-color: #FFC;
+}
+#maillist td {
+	padding: 5px 0;
+}
+#maillist td div {
+	height: 30px;
+	line-height: 30px;
+}
+#maillist td.check, #maillist td.flag {
+	width: 30px;
+}
+#maillist td.check div {
+	width: 30px;
+	margin-left: 7px;
+}
+#maillist td.flag div {
+	width: 30px;
+	background:url(../image/star.png) center left no-repeat;
+}
+#maillist td.flagged div {
+	background:url(../image/star-lit.png) center left no-repeat;
+}
+#maillist td.author {
+	width: 180px;
+}
+#maillist td.author div {
+	width: 180px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+#maillist td.content .inner {
+	position: relative;
+}
+#maillist td.content .inner div {
+	white-space: nowrap;
+	position: absolute;
+	width: 100%;
+	padding-left: 5px;
+	overflow: hidden;
+}
+#maillist td.content .des {
+	color: #A0A0A0;
+}
+#maillist td.time {
+	width: 90px;
+	padding-left: 10px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+#maillist .select {
+	border-radius: 1px;
+	outline: none;
+}
+#listbtline {
+	height: 28px;
+	line-height: 28px;
+	padding-left: 7px;
+	background-color: #F4F4F4;
+}
+#listbtline .title {
+	color: #A0A0A0;
+}
